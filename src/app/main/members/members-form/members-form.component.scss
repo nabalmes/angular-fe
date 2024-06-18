@@ -1,0 +1,62 @@
+@import '@core/scss/angular/libs/form-wizard.component.scss';
+@import '@core/scss/angular/libs/select.component.scss';
+@import '@core/scss/angular/libs/flatpickr.component.scss';
+@import '@core/scss/angular/libs/toastr.component.scss';
+@import '@core/scss/base/pages/page-pricing';
+@import '@core/scss/angular/libs/sweet-alerts.component.scss';
+@import '@core/scss/angular/libs/datatables.component.scss';
+
+
+.registration.brand-logo {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0 2rem 0;
+}
+
+ng2-flatpickr {
+    &.is-invalid {
+        background-color: red;
+        // ::ng-deep {
+        //     .ng2-flatpickr-input {
+        //         color: red;
+        //     }
+        // }
+    }
+}
+
+.datatable-body-cell-label {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  
+.custom-form-check {
+    input[type="radio"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        display: inline-block;
+        width: 1.285rem;
+        height: 1.285rem;
+        background-clip: content-box;
+        border: 0.5px solid #bbbbbb;
+        background-color: #ffffff;
+        border-radius: 50%;
+
+        &:checked {
+            background-color: #24695c;
+        }
+    }
+
+    label { 
+        padding-left: 10px;
+        position: absolute;
+        top: 1px;
+    }
+}
+
+.requirements-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

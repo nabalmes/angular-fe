@@ -1,0 +1,271 @@
+<div class="content-wrapper container-xxl p-0">
+    <div class="content-body">
+        
+        <app-content-header [contentHeader]="contentHeader"></app-content-header>
+        <section id="member-form">
+            <div class="card col-12">
+                <div class="card-body">
+                    <form (ngSubmit)="onSubmit()">
+                        <form>
+                        <div class="row">
+                            <div class="form-group col-4">
+                                <label for="firstName">First Name</label>
+                                <input
+                                    [disabled]="isViewRoute()"
+                                    #firstNameRef="ngModel"
+                                    [(ngModel)]="memberInfo.firstName" 
+                                    name="firstName"
+                                    id="firstName"
+                                    type="text"      
+                                    required
+                                    class="form-control"                                             
+                                    [class.error]="this.submitted && firstNameRef.invalid"        
+                                />
+                                <span *ngIf="this.submitted && firstNameRef.invalid" class="invalid-form">
+                                    <small class="form-text text-danger" *ngIf="firstNameRef.errors.required"
+                                      >This field is required!</small
+                                    >
+                                </span>
+                            </div>  
+                            <div class="form-group col-4">
+                                <label for="middleName">Middle Name</label>
+                                <input
+                                    [disabled]="isViewRoute()"
+                                    #middleNameRef="ngModel"
+                                    name="middleName"      
+                                    class="form-control"         
+                                    [(ngModel)]="memberInfo.middleName"    
+                                    id="middleName"
+                                    type="text"                                             
+                                    [class.error]="this.submitted && middleNameRef.invalid"                      
+                                />
+                            </div> 
+                            <div class="form-group col-4">
+                                <label for="lastName">Last Name</label>
+                                <input
+                                    [disabled]="isViewRoute()"
+                                    #lastNameRef="ngModel"
+                                    [(ngModel)]="memberInfo.lastName" 
+                                    name="lastName"
+                                    id="lastName"
+                                    type="text"      
+                                    required
+                                    class="form-control"                                             
+                                    [class.error]="this.submitted && lastNameRef.invalid"                 
+                                />
+                                <span *ngIf="this.submitted && lastNameRef.invalid" class="invalid-form">
+                                    <small class="form-text text-danger" *ngIf="lastNameRef.errors.required"
+                                      >This field is required!</small
+                                    >
+                                </span>
+                            </div>                       
+                        </div>                   
+                        <div class="row">
+                            <div class="form-group col-4">
+                                <label for="suffixName">Suffix Name</label>
+                                <input
+                                    [disabled]="isViewRoute()"
+                                    name="suffixName"      
+                                    class="form-control"     
+                                    [(ngModel)]="memberInfo.suffixName"             
+                                />
+                            </div>  
+                            <div class="form-group col-4">
+                                <label for="gender">Gender</label>
+                                <select
+                                    [disabled]="isViewRoute()"
+                                    #genderRef="ngModel"
+                                    [(ngModel)]="memberInfo.gender"
+                                    name="gender"
+                                    id="gender"
+                                    required
+                                    class="form-control"                                             
+                                    [ngClass]="{ 'is-invalid': this.submitted && genderRef.errors }"
+                                >
+                                <option value="null"></option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>                                
+                                </select>
+                                <span *ngIf="this.submitted && genderRef.invalid" class="invalid-form">
+                                    <small class="form-text text-danger" *ngIf="genderRef.errors.required"
+                                      >This field is required!</small
+                                    >
+                                </span>
+                            </div> 
+                            <div class="form-group col-4">
+                                <label for="birthdate">Birthdate</label>
+                                <ng2-flatpickr
+                                    #birthdayRef="ngModel"
+                                    [(ngModel)]="memberInfo.birthdate"
+                                    required
+                                    name="birthdate"   
+                                    ng2-flatpickr-custom
+                                    appAgeValidator
+                                    [config]="customDateOptions"
+                                    [ngClass]="{ 'is-invalid': birthdayRef.errors && this.submitted }"
+                                    [config]="customDateOptions"
+                                    [showError]="birthdayRef.invalid && this.submitted"
+                                    (change)="onChangeBirthday($event)"
+                                >
+                                </ng2-flatpickr>
+                                <span *ngIf="this.submitted && birthdayRef.invalid" class="invalid-form">
+                                    <small class="form-text text-danger" *ngIf="birthdayRef.errors.required"
+                                      >This field is required!</small
+                                    >
+                                    <small class="form-text text-danger" *ngIf="birthdayRef.errors.legalAge"
+                                      >Your age is less than 18</small
+                                    >
+                                </span>
+                            </div>                       
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-4">
+                                <label for="age">Age</label>
+                                <input
+                                    [disabled]="isViewRoute()"
+                                    name="age"      
+                                    class="form-control" 
+                                    [(ngModel)]="memberInfo.age"
+                                    readonly                 
+                                />
+                            </div>  
+                            <div class="form-group col-4">
+                                <label for="province">Province</label>
+                                <select
+                                     [disabled]="isViewRoute()"
+                                    #provinceRef="ngModel"
+                                    [(ngModel)]="memberInfo.province"
+                                    name="province"
+                                    id="province"
+                                    required
+                                    class="form-control"                                    
+                                    (change)="onChangeProvince($event)"
+                                    [ngClass]="{ 'is-invalid': this.submitted && provinceRef.errors }"
+                                >
+                                <option *ngFor="let province of provinceChoices" [value]="province.name" [attr.data-value]="province.code">{{province.name}}</option>
+                                </select>
+                                <span *ngIf="this.submitted && provinceRef.invalid" class="invalid-form">
+                                    <small class="form-text text-danger" *ngIf="provinceRef.errors.required"
+                                      >This field is required!</small
+                                    >
+                                </span>
+                            </div> 
+                            <div class="form-group col-4">
+                                <label for="city">City/Municipality</label>
+                                <select
+                                [disabled]="isViewRoute()"
+                                #cityRef="ngModel"
+                                [(ngModel)]="memberInfo.city"
+                                name="city"
+                                id="city"
+                                required
+                                class="form-control"                                    
+                                (change)="onChangeCity($event)"
+                                [ngClass]="{ 'is-invalid': this.submitted && cityRef.errors }"
+                                >
+                                <option *ngFor="let city of cityChoices" [value]="city.name" [attr.data-value]="city.code">{{city.name}}</option>
+                                </select>
+                                <span *ngIf="this.submitted && cityRef.invalid" class="invalid-form">
+                                    <small class="form-text text-danger" *ngIf="cityRef.errors.required"
+                                      >This field is required!</small
+                                    >
+                                </span>
+                            </div>                       
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-4">
+                                <label for="barangay">Barangay</label>
+                                <select
+                                [disabled]="isViewRoute()"
+                                #barangayRef="ngModel"
+                                [(ngModel)]="memberInfo.barangay"
+                                name="barangay"
+                                id="barangay"
+                                required
+                                class="form-control"           
+                                [ngClass]="{ 'is-invalid': this.submitted && barangayRef.errors }"
+                                >
+                                <option *ngFor="let barangay of barangayChoices" [value]="barangay.name">{{barangay.name}}</option>
+                                </select>
+                                <span *ngIf="this.submitted && barangayRef.invalid" class="invalid-form">
+                                    <small class="form-text text-danger" *ngIf="barangayRef.errors.required"
+                                      >This field is required!</small
+                                    >
+                                </span>
+                            </div>  
+                            <div class="form-group col-4">
+                                <label for="zipCode">Zip Code</label>
+                                <input
+                                    [disabled]="isViewRoute()"
+                                    #zipCodeRef="ngModel"
+                                    [(ngModel)]="memberInfo.zipCode"
+                                    name="zipCode"
+                                    id="zipCode"
+                                    required
+                                    class="form-control"           
+                                    [class.error]="this.submitted && zipCodeRef.invalid"                                    
+                                />  
+                                <span *ngIf="this.submitted && zipCodeRef.invalid" class="invalid-form">
+                                    <small class="form-text text-danger" *ngIf="zipCodeRef.errors.required"
+                                      >This field is required!</small
+                                    >
+                                </span>                         
+                            </div> 
+                            <div class="form-group col-4">
+                                <label for="email">Email Address</label>
+                                <input
+                                    [disabled]="isViewRoute()"
+                                    #emailAddressRef="ngModel"
+                                    [(ngModel)]="memberInfo.emailAddress"
+                                    name="emailAddress"
+                                    id="emailAddress"
+                                    required
+                                    class="form-control"           
+                                    [class.error]="this.submitted && emailAddressRef.invalid"  
+                                />
+                                <span *ngIf="this.submitted && emailAddressRef.invalid" class="invalid-form">
+                                    <small class="form-text text-danger" *ngIf="emailAddressRef.errors.required"
+                                      >This field is required!</small
+                                    >
+                                </span> 
+                            </div>                       
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-4">
+                                <label for="phoneNumber">Phone Number</label>
+                                <input
+                                    [disabled]="isViewRoute()"
+                                    #phoneNumberRef="ngModel"
+                                    [(ngModel)]="memberInfo.phoneNumber"
+                                    name="phoneNumber"
+                                    id="phoneNumber"
+                                    required
+                                    class="form-control"           
+                                    [class.error]="this.submitted && phoneNumberRef.invalid"  
+                                />       
+                                <span *ngIf="this.submitted && phoneNumberRef.invalid" class="invalid-form">
+                                    <small class="form-text text-danger" *ngIf="phoneNumberRef.errors.required"
+                                      >This field is required!</small
+                                    >
+                                </span>                      
+                            </div>                              
+                        </div>
+                    </form>
+                      
+                    <div class="d-flex justify-content-end">
+                        <button
+                            [disabled]="isViewRoute()"
+                            class="btn btn-primary"
+                            type="submit"
+                        >Submit
+                        </button>
+                    </div>    
+                    </form>                
+                </div>
+                  
+            </div>
+        </section>
+    </div>
+</div>
+
+

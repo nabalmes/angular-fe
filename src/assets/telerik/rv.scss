@@ -1,0 +1,212 @@
+.viewer1 {
+    font-family: 'Roboto';
+    font-size: 7pt;
+  }
+
+  .trv-nav.k-widget,
+  .trv-content {
+    border: none;
+  }
+
+  .trv-page-wrapper {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 100%;
+  }
+
+  .trv-page-container {
+    background: #eaecf3 !important;
+    background-attachment: fixed;
+  }
+
+  .trv-report-page {
+    margin: 0 auto !important;
+  }
+
+  .trv-parameter-title {
+    padding-bottom: 5px !important;
+  }
+
+  .trv-parameters-area-content {
+    outline: none;
+    padding-top: 12px;
+  }
+
+  .trv-parameter-header.k-header {
+    background: none;
+  }
+
+  .trv-parameter-actions.k-content {
+    padding-bottom: 5px !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .k-widget.k-tooltip-validation {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 5px;
+  }
+
+  .k-dropdown .k-dropdown-wrap {
+    background: #fff !important;
+  }
+
+  .k-dropdown .k-dropdown-wrap .k-select .k-icon:before {
+    opacity: 0.7;
+  }
+
+  .k-animation-container.k-list-container.k-popup .k-list-scroller ul.k-list li,
+  .k-animation-container .k-popup .k-list-scroller ul.k-list li {
+    padding: 2px 10px !important;
+  }
+
+  span.k-widget.k-dropdown.trv-parameter-value {
+    width: 100% !important;
+  }
+
+  .k-list .k-item:focus,
+  .k-list .k-item.k-state-focused,
+  .k-list-optionlabel:focus,
+  .k-list-optionlabel.k-state-focused {
+    box-shadow: none !important;
+  }
+
+  .k-animation-container .k-popup .k-list-scroller ul.k-list li,
+  .k-animation-container.k-list-container.k-popup .k-list-scroller ul.k-list li {
+    background-image: none;
+  }
+
+  .trv-pages-area .trv-error-pane {
+    top: 45%;
+  }
+
+  .k-animation-container .k-group.k-menu-group .k-item .k-link.k-menu-link {
+    font-size: 13px;
+    padding: 8px 15px;
+  }
+
+  .k-animation-container .k-group.k-menu-group .k-item,
+  .k-animation-container .k-group.k-menu-group .k-item .k-link.k-menu-link {
+    background-image: none;
+  }
+
+  .k-menu .k-animation-container .k-menu-group,
+  .k-menu-scroll-wrapper .k-animation-container .k-menu-group,
+  .k-popups-wrapper .k-animation-container .k-menu-group {
+    border-radius: 5px;
+    border-color: #dedede;
+    box-shadow: 0px 3px 13px -5px #dedede !important;
+  }
+
+  .k-state-focused {
+    box-shadow: 0px 3px 13px -5px #dedede !important;
+  }
+
+  .k-menu .k-item div,
+  .k-menu-scroll-wrapper .k-item div,
+  .k-popups-wrapper .k-item div {
+    margin-top: 8px !important;
+  }
+
+  .k-menu .k-menu-scroll-button:hover,
+  .k-menu .k-state-hover > .k-link {
+    background-color: #e6e6e6;
+  }
+
+  .k-widget.k-dropdown.trv-parameter-value {
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  .trv-listviewitem {
+    padding: 8px 10px;
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  .k-draghandle.k-state-selected:hover,
+  .k-ghost-splitbar-horizontal,
+  .k-ghost-splitbar-vertical,
+  .k-list > .k-state-highlight,
+  .k-list > .k-state-selected,
+  .k-marquee-color,
+  .k-panel > .k-state-selected,
+  .k-scheduler .k-scheduler-toolbar .k-state-selected,
+  .k-scheduler .k-today.k-state-selected,
+  .k-state-selected,
+  .k-state-selected:link,
+  .k-state-selected:visited,
+  .k-tool.k-state-selected {
+    border-color: #4c4c4c;
+    background-color: #4c4c4c;
+    background-image: none;
+    color: #fff;
+  }
+
+  .trv-list.k-widget.k-listview.k-selectable {
+    border-radius: 5px;
+    border-color: #dedede;
+  }
+
+  .k-menu .k-state-selected > .k-link {
+    border-color: #4c4c4c;
+    background-color: #4c4c4c;
+    background-image: none;
+  }
+
+  .trv-parameters-area .trv-parameter-container {
+    padding: 0.1em 8px !important;
+  }
+
+  .k-calendar .k-alt,
+  .k-calendar th,
+  .k-dropzone-hovered,
+  .k-footer-template td,
+  .k-grid-footer,
+  .k-group,
+  .k-group-footer td,
+  .k-grouping-header,
+  .k-pager-wrap,
+  .k-popup,
+  .k-toolbar,
+  .k-widget .k-status {
+    background-color: #fff;
+  }
+
+  .trv-nav ul.trv-menu-large {
+    display: flex;
+    flex-direction: row;
+    height: 45px;
+    background: #fff;
+  }
+
+  .trv-nav input.k-textbox {
+    padding: 13px 10px !important;
+  }
+
+  .trv-nav ul.trv-menu-large li.k-item {
+    height: 100%;
+    background: #fff;
+    flex-grow: inherit !important;
+  }
+
+  .trv-nav ul.trv-menu-large li.k-item.k-state-selected:not(.k-state-hover) .t-font-icon.k-icon {
+    color: #fff;
+  }
+
+  .trv-nav ul.trv-menu-large li.k-item,
+  .trv-nav ul.trv-menu-large li.k-item .k-link {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    flex-direction: row;
+    position: relative;
+    height: 100%;
+  }
+
+  .trv-nav ul.trv-menu-large > li.k-item > .k-link {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+  }
