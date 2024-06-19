@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  apiUrl: 'https://net-be.vercel.app',
+  apiUrl: 'https://localhost:5001',
   production: false,
   hmr: false,
   apiVersion: "1"
