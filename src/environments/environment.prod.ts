@@ -1,5 +1,5 @@
 export const environment = {
-  apiUrl: 'https://net-be.vercel.app/:5001',
+  apiUrl: 'https://net-be.vercel.app',
   production: true,
   hmr: false,
   apiVersion: "1"
