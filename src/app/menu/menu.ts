@@ -24,5 +24,13 @@ export const menu: CoreMenu[] = [
     icon: 'home',
     url: 'accounts',
     role: ['Basic']
+  },
+  {
+    id: 'family',
+    title: 'Family',
+    type: 'item',
+    icon: 'home',
+    url: 'family',
+    role: ['Basic']
   }
 ]
