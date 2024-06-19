@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContentHeaderModule } from 'app/layout/components/content-header/content-header.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { CoreCommonModule } from '@core/common.module';
+import { FamilyComponent } from './family/family.component';
 
 const routes: Routes = [
   {
@@ -25,10 +26,15 @@ const routes: Routes = [
     path: 'members',
     loadChildren: () => import('./members/members.module').then(m => m.MembersModule)
   },
+  {
+    path: 'family',
+    loadChildren: () => import('./family/family.module').then(m => m.FamilyModule)
+  },
 ];
 
 @NgModule({
   declarations: [
+  
   ],
   imports: [
     RouterModule.forChild(routes),
