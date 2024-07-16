@@ -152,6 +152,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
   }
 
+   /**
+   * Account 
+   */
+   account() {
+    this._router.navigate(['/account']);
+  }
+
+
   /**
    * Logout method
    */
